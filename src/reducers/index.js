@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import categoryReducer from './categoryReducer';
+import imgReducer from './imgReducer';
 
 export default combineReducers({
-    category:  categoryReducer
+    category:  categoryReducer,
+    images: imgReducer
 });

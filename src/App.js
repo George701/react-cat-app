@@ -4,13 +4,19 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import Main from './components/Main';
 
 function App() {
   return (
     <Provider store={store}>
-      <Header/>
-      <Main/>
+      <div className="page">
+        <Header/>
+        <div className="container">
+          <Main/>
+        </div>
+        <Footer/>
+      </div>
     </Provider>
   );
 }
