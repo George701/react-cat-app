@@ -99,6 +99,18 @@ html, body, #root{
   flex-direction: row;
 }
 
+.gallery-container{
+  overflow: auto;
+  max-height: 50vh;
+  max-width: 50vw;
+  /* display: flex;
+  flex-direction: column */
+}
+
+.gallery-item{
+  /* flex: 1; */
+}
+
 .btn-more{
   flex: 1;
   text-align: center;

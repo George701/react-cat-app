@@ -11,6 +11,7 @@ class Main extends Component {
     state = {
         amount: 10,
         category_id: "1",
+        images_obj: {}
     }
 
     componentDidMount(){
@@ -24,11 +25,17 @@ class Main extends Component {
         if(prevState.amount !== amount|| prevState.category_id !== category_id){
             this.props.getImg(amount, category_id)
         }
+
+        const { images } = this.props;
+        if(prevProps.images !== images){
+            this.setState({images_obj: images})
+        }
     }
 
 
     render() {
         const { category, images } = this.props;
+        const { images_obj } = this.state;
     
         return (
             <div className="main-block">
@@ -40,7 +47,7 @@ class Main extends Component {
                         {this.getCategories(category)}
                     </div>
                     <div className="img-b">
-                        <Gallery images={images}/>
+                        <Gallery images={images_obj}/>
                     </div>
                 </div>
                 <div className="btn-more">
