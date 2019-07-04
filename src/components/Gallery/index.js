@@ -1,36 +1,29 @@
 import React, { Component } from 'react';
+import CatBig from '../layout/loaders/CatBig';
 
 class Gallery extends Component {
 
     render() {
         const { images } = this.props;
-        if(!(Object.entries(images).length === 0 && images.constructor === Object)){
+        if(images.length !== 0){
+            let id_num = 0;
             return (
                 <div className="gallery-container">
-                    {Object.values(images).map(unit => {
-                        // console.log(unit);
-                        return <img className="gallery-item" key={unit.id} src={unit.url} alt="Cat" height={this.fixSize(unit.height)} width={this.fixSize(unit.width)}/>
-                    })}
+                    {images.map(unit => {
+                        let id_prefix = unit.id+"_"+id_num;
+                        id_num++;
+                        return (
+                            <a href={unit.url} target="_blank" rel="noopener noreferrer">
+                                <img className="gallery-item" key={id_prefix} src={unit.url} alt="Cat"/>
+                            </a>
+                        )
+                          })}
                 </div>
             )
         }else{
-            return <div>Loading...</div>
-        }
-    }
-
-    fixSize = (value) => {
-        value = parseInt(value);
-        if(value < 800){
-            return value/4;
-        }else if(value < 1000){
-            return value/5;
-        }else if(value < 1200){
-            return value/6;
-        }else{
-            return value/8;
+            return <CatBig/>
         }
     }
 }   
 
 export default Gallery;
-// export default connect((state) => {return {category: state.category}}, {getCategory})(Main);

@@ -5,49 +5,62 @@ import PropTypes from "prop-types";
 import { getCategory, getImg } from '../../actions/dataActions';
 
 import CatSmall from '../layout/loaders/CatSmall';
+
 import Gallery from '../Gallery';
 
 class Main extends Component {
     state = {
-        amount: 10,
         category_id: "1",
-        images_obj: {}
+        img_arr: []
     }
 
     componentDidMount(){
-        const { amount, category_id } = this.state;
+        const { category_id } = this.state;
         this.props.getCategory();
-        this.props.getImg(amount, category_id)
+        this.props.getImg( category_id);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { amount, category_id} = this.state;
-        if(prevState.amount !== amount|| prevState.category_id !== category_id){
-            this.props.getImg(amount, category_id)
+        const { category_id } = this.state;
+        if(prevState.category_id !== category_id){
+            this.props.getImg( category_id)
         }
 
-        const { images } = this.props;
-        if(prevProps.images !== images){
-            this.setState({images_obj: images})
-        }
+        if(prevProps.images !== this.props.images){
+            let final_arr = [];
+            let arr_new = Object.values(this.props.images);
+            const { img_arr } = this.state;
+
+            for (let i = 0; i < img_arr.length; i++){
+                final_arr.push(img_arr[i]);
+            }
+            for (let i = 0; i < arr_new.length; i++){
+                final_arr.push(arr_new[i]);
+            }
+            
+            this.setState({img_arr: final_arr})
+        };
     }
 
 
     render() {
-        const { category, images } = this.props;
-        const { images_obj } = this.state;
+        const { category } = this.props;
+        const { category_id, img_arr } = this.state;
+        
+        const chosen_category = this.getCategoryName(category, category_id);
     
         return (
             <div className="main-block">
                 <div className="h-main">
                     <span className="h-unit">Cat solves your problems!</span>
+                    <span className="h-unit">Chosen CATegory: {chosen_category}</span>
                 </div>
                 <div className="b-main">
                     <div className="categories-b">
                         {this.getCategories(category)}
                     </div>
                     <div className="img-b">
-                        <Gallery images={images_obj}/>
+                        <Gallery images={img_arr}/>
                     </div>
                 </div>
                 <div className="btn-more">
@@ -77,7 +90,7 @@ class Main extends Component {
     }
 
     changeCategory = e => {
-        this.setState({category_id: e.target.id, amount: 10})
+        this.setState({category_id: e.target.id, img_arr:[]})
     }
 
     makeCategoryName = (string) => {
@@ -85,15 +98,22 @@ class Main extends Component {
     }
 
     increaseAmount = () => {
-        const { amount } = this.state;
-        const newAmount = amount + 10;
-        this.setState({amount: newAmount});
+        const { category_id } = this.state;
+        this.props.getImg(category_id);
+    }
+
+    getCategoryName = (cat, id) => {
+        if(cat[id] !== undefined){
+            return this.makeCategoryName(cat[id].name)
+        }else{
+            return "Loading..."
+        }
     }
 }
 
 Main.propTypes = {
-    getCategory: PropTypes.func.isRequired
+    getCategory: PropTypes.func.isRequired,
+    getImg: PropTypes.func.isRequired
 }
 
 export default connect((state) => {return {category: state.category, images: state.images}}, {getCategory, getImg})(Main);
-// export default connect((state) => {return {customers: state.customers, vehicles: state.vehicles}},{getCustomers, getVehiclesStatus})(Dashboard);

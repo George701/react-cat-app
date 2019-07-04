@@ -5,7 +5,6 @@ export const getCategory = () => async dispatch => {
 
     const url = "https://api.thecatapi.com/v1/categories";
 
-
     const res = await axios.get(url);
     dispatch({
         type: GET_CATEGORY,
@@ -13,12 +12,9 @@ export const getCategory = () => async dispatch => {
     })
 };
 
-export const getImg = (amount, category) => async dispatch => {
+export const getImg = (category) => async dispatch => {
 
-    console.log("Number of pics: "+amount+"; cat_id: "+category);
-
-    const url = `https://api.thecatapi.com/v1/images/search?limit=${amount}&category_ids=${category}`;
-
+    const url = `https://api.thecatapi.com/v1/images/search?limit=10&category_ids=${category}`;
 
     const res = await axios.get(url);
     dispatch({

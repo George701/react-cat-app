@@ -15,6 +15,26 @@ html, body, #root{
   flex-direction: column;
 }
 
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 /*
 =================================================
                       Header
@@ -51,7 +71,7 @@ html, body, #root{
 }
 
 .unit-link:hover{
-  transition: all 0.5s ease-out;
+  transition: all 0.25s ease-out;
   color: #9c27b0;
 }
 
@@ -63,7 +83,6 @@ html, body, #root{
 
 .container{
     flex: 24;
-    /* height: 80vh; */
     width: 80vw;
     margin: 1.5rem auto;
     background: #FFF;
@@ -74,24 +93,34 @@ html, body, #root{
 }
 
 .main-block{
-    /* padding: 1rem 2rem; */
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* === main block header === */
+/*
+=================================================
+              Main block headerin
+=================================================
+*/
 
 .h-main{
   flex: 1;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .h-unit{
+  flex: 1;
   font-size: 1.2rem;
 }
 
-/* === main block body === */
+/*
+=================================================
+              Main block body
+=================================================
+*/
 
 .b-main{
   flex: 15;
@@ -103,12 +132,21 @@ html, body, #root{
   overflow: auto;
   max-height: 50vh;
   max-width: 50vw;
-  /* display: flex;
-  flex-direction: column */
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .gallery-item{
-  /* flex: 1; */
+  margin: .5rem auto;
+  max-width: 300px;
+  cursor: zoom-in;
+}
+
+.gallery-item:hover{
+  transition: all 0.5s ease-out;
+  filter: blur(2px);
+  opacity: .8;
+
 }
 
 .btn-more{
@@ -150,9 +188,26 @@ html, body, #root{
 
 .img-b{
   flex: 2;
+  position: relative;
 }
 
-/* === main block footer === */
+.cat-loader-center{
+  width:200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cat-loader{
+  width:300px;
+}
+
+/*
+=================================================
+              Main block footer
+=================================================
+*/
 
 .f-main{
   flex: 1;
@@ -199,4 +254,56 @@ html, body, #root{
   font-size: 1.1rem;
   background-color: #bdbdbd;
   text-align: center;
+}
+
+/*
+=================================================
+                    Portability
+=================================================
+*/
+@media screen and (max-width: 1350px){
+  .gallery-container{
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .h-main{
+    flex-direction: column;
+  }
+
+  .h-unit{
+    text-align: center;
+  }
+
+  .b-main {
+    flex-direction: column;
+  }
+
+  .category-unit{
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  .categories-b, .img-b{
+    margin: 0 auto;
+  }
+
+  .btn-more{
+    margin-top: 1rem;
+  }
+
+  .header, .footer{
+    display: none;
+  }
+
+  .gallery-item{
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 550px){
+  .gallery-item{
+    max-width: 150px;
+  }
 }
