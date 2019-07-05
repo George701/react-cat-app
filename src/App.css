@@ -142,7 +142,7 @@ html, body, #root{
 
 .categories-b{
   flex: 1;
-  border-right: 1px solid #212121;
+  border-right: 1px solid #616161;
 }
 
 .category-list{
@@ -170,17 +170,18 @@ html, body, #root{
 
 .gallery-container{
   flex: 11;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 60vh;
   max-width: 50vw;
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .gallery-item{
-  margin: .5rem auto;
-  max-width: 300px;
+  margin: .5rem;
+  max-width: 200px;
   cursor: pointer;
+  flex: auto;
 }
 
 .gallery-item:hover{
@@ -268,9 +269,9 @@ html, body, #root{
 =================================================
 */
 @media screen and (max-width: 1350px){
-  .gallery-container{
+  /* .gallery-container{
     grid-template-columns: auto;
-  }
+  } */
 }
 
 @media screen and (max-width: 850px){
