@@ -237,7 +237,7 @@ html, body, #root{
   height: 5px;
   border-bottom: 1px solid #212121;
   top: 0;
-  width: 15vw;
+  width: 20vw;
 }
 .fancy span:before {
   right: 100%;
