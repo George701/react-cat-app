@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { getCategory, getImg } from '../../actions/dataActions';
 
 import CatSmall from '../layout/loaders/CatSmall';
+import CatBig from '../layout/loaders/CatBig';
 
 import Gallery from '../Gallery';
 
@@ -60,11 +61,8 @@ class Main extends Component {
                         {this.getCategories(category)}
                     </div>
                     <div className="img-b">
-                        <Gallery images={img_arr}/>
+                        {this.checkImagesArray(img_arr)}
                     </div>
-                </div>
-                <div className="btn-more">
-                    <span className="show-more" onClick={this.increaseAmount}>More</span>
                 </div>
                 <div className="f-main">
                     <div className="subtitle fancy"><span><i className="fas fa-cat"/></span></div>
@@ -107,6 +105,21 @@ class Main extends Component {
             return this.makeCategoryName(cat[id].name)
         }else{
             return "Loading..."
+        }
+    }
+
+    checkImagesArray = (img_arr) => {
+        if(img_arr.length !== 0){
+            return(
+                <React.Fragment>
+                    <Gallery images={img_arr}/>
+                    <div className="btn-more">
+                        <span className="show-more" onClick={this.increaseAmount}>More</span>
+                    </div>
+                </React.Fragment>  
+            )
+        }else{
+            return <CatBig/>
         }
     }
 }

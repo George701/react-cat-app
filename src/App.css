@@ -35,6 +35,18 @@ html, body, #root{
   background: #555; 
 }
 
+.cat-loader-center{
+  width:200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cat-loader{
+  width:300px;
+}
+
 /*
 =================================================
                       Header
@@ -128,47 +140,9 @@ html, body, #root{
   flex-direction: row;
 }
 
-.gallery-container{
-  overflow: auto;
-  max-height: 50vh;
-  max-width: 50vw;
-  display: grid;
-  grid-template-columns: auto auto;
-}
-
-.gallery-item{
-  margin: .5rem auto;
-  max-width: 300px;
-  cursor: zoom-in;
-}
-
-.gallery-item:hover{
-  transition: all 0.5s ease-out;
-  filter: blur(2px);
-  opacity: .8;
-
-}
-
-.btn-more{
-  flex: 1;
-  text-align: center;
-}
-
-.show-more{
-  border: 1px solid #616161;
-  border-radius: .5rem;
-  padding: .5rem 1rem;
-  cursor: pointer;
-}
-
-.show-more:hover{
-  transition: all 0.5s ease-out;
-  background: #616161;
-  color: #FFF;
-}
-
 .categories-b{
   flex: 1;
+  border-right: 1px solid #212121;
 }
 
 .category-list{
@@ -189,18 +163,51 @@ html, body, #root{
 .img-b{
   flex: 2;
   position: relative;
+  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.cat-loader-center{
-  width:200px;
+.gallery-container{
+  flex: 11;
+  overflow: auto;
+  max-height: 60vh;
+  max-width: 50vw;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.gallery-item{
+  margin: .5rem auto;
+  max-width: 300px;
+  cursor: pointer;
+}
+
+.gallery-item:hover{
+  transition: all 0.5s ease-out;
+  opacity: .5;
+}
+
+.btn-more{
+  flex: 1;
+  position: relative;
+}
+
+.show-more{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  border: 1px solid #616161;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
 }
 
-.cat-loader{
-  width:300px;
+.show-more:hover{
+  transition: all 0.5s ease-out;
+  background: #616161;
+  color: #FFF;
 }
 
 /*
@@ -211,7 +218,7 @@ html, body, #root{
 
 .f-main{
   flex: 1;
-  padding: 1rem;
+  padding: 3rem 0 1rem 0;
 }
 
 .fancy {
@@ -229,7 +236,6 @@ html, body, #root{
   position: absolute;
   height: 5px;
   border-bottom: 1px solid #212121;
-  /* border-top: 1px solid #212121; */
   top: 0;
   width: 15vw;
 }
