@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-cat-app/static/css/main.b1fe3e31.chunk.css",
+    "main.css": "/react-cat-app/static/css/main.3d8eb408.chunk.css",
     "main.js": "/react-cat-app/static/js/main.1b802ddc.chunk.js",
     "main.js.map": "/react-cat-app/static/js/main.1b802ddc.chunk.js.map",
     "runtime~main.js": "/react-cat-app/static/js/runtime~main.e67e5573.js",
@@ -8,9 +8,9 @@
     "static/js/2.973ffd83.chunk.js": "/react-cat-app/static/js/2.973ffd83.chunk.js",
     "static/js/2.973ffd83.chunk.js.map": "/react-cat-app/static/js/2.973ffd83.chunk.js.map",
     "index.html": "/react-cat-app/index.html",
-    "precache-manifest.a76f69bb70ff9acda6758f5be71375e0.js": "/react-cat-app/precache-manifest.a76f69bb70ff9acda6758f5be71375e0.js",
+    "precache-manifest.ef05f4f9fb5ba167511d5a7188777b18.js": "/react-cat-app/precache-manifest.ef05f4f9fb5ba167511d5a7188777b18.js",
     "service-worker.js": "/react-cat-app/service-worker.js",
-    "static/css/main.b1fe3e31.chunk.css.map": "/react-cat-app/static/css/main.b1fe3e31.chunk.css.map",
+    "static/css/main.3d8eb408.chunk.css.map": "/react-cat-app/static/css/main.3d8eb408.chunk.css.map",
     "static/media/big.gif": "/react-cat-app/static/media/big.dbcca15c.gif",
     "static/media/small.gif": "/react-cat-app/static/media/small.9c95f9af.gif"
   }
