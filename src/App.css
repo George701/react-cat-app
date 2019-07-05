@@ -179,7 +179,9 @@ html, body, #root{
 
 .gallery-item{
   margin: .5rem;
-  max-width: 200px;
+  min-width: 150px;
+  max-height: 200px;
+  max-width: 300px;
   cursor: pointer;
   flex: auto;
 }
