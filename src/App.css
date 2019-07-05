@@ -289,6 +289,10 @@ html, body, #root{
     flex-direction: column;
   }
 
+  .categories-b{
+    border: none;
+  }
+
   .category-unit{
     display: inline-block;
     margin-right: 1rem;
