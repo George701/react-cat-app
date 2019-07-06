@@ -88,7 +88,9 @@ class Main extends Component {
     }
 
     changeCategory = e => {
-        this.setState({category_id: e.target.id, img_arr:[]})
+        if(e.target.id !== this.state.category_id){
+            this.setState({category_id: e.target.id, img_arr:[]})
+        }
     }
 
     makeCategoryName = (string) => {
